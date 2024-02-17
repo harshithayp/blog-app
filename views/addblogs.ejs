@@ -1,0 +1,30 @@
+<%- include("./partials/header") %>
+
+<%- include("./partials/navs") %>
+  <div class="container">
+    <% if (user) { %>
+      <form enctype="multipart/form-data" action="/blog/addblog" method="post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" name= "title" aria-describedby="title">
+          
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea type="text" class="form-control" name ="content" aria-describedby="content"></textarea>
+           
+        </div>
+        
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input type="file" name="image" id="image">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  <%  }  else { %>
+    
+  <% } %>
+   
+  </div>
+<%- include("./partials/footer") %>

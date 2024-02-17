@@ -1,0 +1,44 @@
+<%- include("./partials/header") %>
+
+<%- include("./partials/navs") %>
+<div class="container">
+  <article>
+    <h3><%= blogs.title %></h3>
+    
+    <img src="/uploads/<%= blogs.image %>"  class="img-fluid" alt="<%=blogs.title %> Image" style="width: 327px;
+    height: 209px;">
+   
+
+    <p><%= blogs.content %></p>
+  </article>
+  <div class="container">
+    <img src="/uploads/default.png" alt="defaultimg" style="width: 60px;height: 63px;"><%= blogs.createdBy.fullname %>
+  </div>
+  
+  <div class="container">
+    <h1>Comments(<%=comments.length %>)</h1>
+    <% if (user) { %>
+    <form  action="/blog/comment/<%= blogs._id %>" method="post">
+      <div class="mb-3">
+        
+        <input type="text" class="form-control" name="commentstext" placeholder="Enter Comments">
+        
+      </div>
+      
+      
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    <% } else { %>
+      <% } %>
+  </div>
+  
+  <div>
+    <% comments.forEach(comment=>{ %>
+      <img src="/uploads/default.png" alt="defaultimg" style="width: 60px;height: 63px;"><%= comment.commentscreatedBy.fullname %>
+     <pre><%= comment.commentstext %></pre>
+      <% }) %>
+    
+  </div>
+  
+</div>
+<%- include("./partials/footer") %>

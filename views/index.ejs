@@ -1,0 +1,44 @@
+<%- include("./partials/header") %>
+
+<%- include("./partials/navs") %>
+<div class="container">
+  <% if ( user ) { %>
+   <h2>List of Blogs</h2>
+  <div class="row">
+    <% blog.forEach(blogs => { %>
+    
+     <div class="col border">
+      
+         
+        <div class="container">
+          <%= blogs.title %>
+        </div>
+          
+        
+        
+        <div class="container">
+          <% if (blogs.image) { %>
+            <img src="/uploads/<%= blogs.image %>"  class="img-fluid" alt="<%=blogs.title %> Image" style="    width: 700px;
+            height: 200px;">
+         <% } %>
+        </div>
+        
+        <div class="container">
+          <a class="btn btn-primary" href="/blog/<%= blogs._id %>" role="button">View</a>
+
+        </div>
+       
+      
+    
+    </div>
+    <% }); %>
+    
+  </div>
+
+  <% } else { %>
+  
+  <% } %>
+</div>
+
+  
+<%- include("./partials/footer") %>
