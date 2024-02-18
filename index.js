@@ -31,8 +31,8 @@ app.use("/auth",authRoute);
 mongoose.connect(MONGO_CONNECTION)
 .then(()=>{
     console.log("connnected to mongodb cloud");
-    app.listen(3002,()=>{
-        console.log('Node api is running on port 3002');
+    app.listen(3001,()=>{
+        console.log('Node api is running on port 3001');
     });
 })
 .catch((error)=>{
